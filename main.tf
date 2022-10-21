@@ -4,7 +4,7 @@ resource "aws_elasticache_cluster" "main" {
   engine_version = var.engine_version
   node_type = var.instance_class
   num_cache_nodes = var.instance_count
-  parameter_group_name = aws_elasticache_cluster_parameter_group.main.name
+  parameter_group_name = aws_elasticache_parameter_group.main.name
   subnet_group_name = aws_elasticache_subnet_group.main.name
   port = 6379
 }
@@ -17,8 +17,8 @@ resource "aws_elasticache_subnet_group" "main" {
   }
 }
 
-resource "aws_elasticache_cluster_parameter_group" "main" {
-  name = "${var.env}-redis"
+resource "aws_elasticache_parameter_group" "main" {
+  name   = "${var.env}-redis"
   family = "redis6.x"
 }
 
