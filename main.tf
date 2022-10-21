@@ -1,5 +1,5 @@
 resource "aws_elasticache_cluster" "main" {
-  cluster_identifier = "${var.env}-redis"
+  cluster_id = "${var.env}-redis"
   engine = "redis"
   engine_version = var.engine_version
   node_type = var.instance_class
