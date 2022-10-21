@@ -6,7 +6,7 @@ resource "aws_elasticache_cluster" "main" {
   num_cache_nodes = var.instance_count
   parameter_group_name = aws_elasticache_cluster_parameter_group.main.name
   subnet_group_name = aws_elasticache_subnet_group.main.name
-
+  port = 6379
 }
 
 resource "aws_elasticache_subnet_group" "main" {
